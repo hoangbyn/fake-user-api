@@ -1,18 +1,16 @@
-import { Faker, en_US } from "@faker-js/faker";
-
-const fakerUS = new Faker({ locale: [en_US] });
+import { fakerEN_US as faker } from "@faker-js/faker";
 
 export default function handler(req, res) {
   const user = {
-    firstName: fakerUS.person.firstName(),
-    lastName: fakerUS.person.lastName(),
-    address: fakerUS.location.streetAddress(),
-    city: fakerUS.location.city(),
-    state: fakerUS.location.state(),
-    postalCode: fakerUS.location.zipCode(),
+    firstName: faker.person.firstName(),
+    lastName: faker.person.lastName(),
+    address: faker.location.streetAddress(),
+    city: faker.location.city(),
+    state: faker.location.state(),
+    postalCode: faker.location.zipCode(),
     country: "United States",
-    email: fakerUS.internet.email(),
-    phone: fakerUS.phone.number(),
+    email: faker.internet.email(),
+    phone: faker.phone.number(),
   };
 
   res.status(200).json(user);
